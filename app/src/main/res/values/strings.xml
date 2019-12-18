@@ -7,4 +7,6 @@
     <string name="input_tag_string">Input Flag String</string>
     <string name="target_package">com.kakao.talk</string>
     <string name="reply_string">답장</string>
+    <string name="reply_action_string">Reply Action String</string>
+    <string name="target_package_name">Target Package Name</string>
 </resources>

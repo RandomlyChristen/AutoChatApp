@@ -46,6 +46,14 @@ public class NotificationReceiver extends NotificationListenerService {
     public static void setFlag(String _flag) { flag = _flag; }
     public static String getFlag() { return flag; }
 
+    private static String replyString = "답장";
+    public static void setReplyString(String _replyString) { replyString = _replyString; }
+    public static String getReplyString() { return replyString; }
+
+    private static String targetPackageName = "com.kakao.talk";
+    public static void setTargetPackageName(String _targetPackageName) { targetPackageName = _targetPackageName; }
+    public static String getTargetPackageName() { return targetPackageName; }
+
     private HashMap<String, ApplicationThread> apps;
 
     public static void legalStartCall(Context context) {
@@ -121,7 +129,7 @@ public class NotificationReceiver extends NotificationListenerService {
 
 
     private SimpleNotification verifyNotification(StatusBarNotification sbn) {
-        if (!sbn.getPackageName().equals(getString(R.string.target_package))) return null;
+        if (!sbn.getPackageName().equals(targetPackageName)) return null;
 
         Notification notification = sbn.getNotification();
 
@@ -138,7 +146,7 @@ public class NotificationReceiver extends NotificationListenerService {
         if (result.text == null || result.sender == null || !result.text.startsWith(flag)) return null;
 
         for (Notification.Action action : notification.actions) {
-            if (action.title.equals(getString(R.string.reply_string)))
+            if (action.title.equals(replyString))
                 result.sendAction = action;
         }
 
