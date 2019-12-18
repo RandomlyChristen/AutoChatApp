@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText flagString;
     private Switch serviceSwitch;
 
+    // test
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
